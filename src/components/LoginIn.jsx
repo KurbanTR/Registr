@@ -31,7 +31,6 @@ const LoginIn = () => {
       setError(false);
     } 
   }
-
   console.log(newUsers);
   return (
     <div className={s.center}>

@@ -1,9 +1,15 @@
 import { useState } from 'react'
 import s from '../style/SignUp.module.css'
 import { Link } from 'react-router-dom'
-import { users } from '../store/users'
 
+const users = [
+    {id: 0, name: 'Arman',email: 'Arman@gmail.com', password: '156528', isAdmin: false},
+    {id: 1, name: 'Ivan',email: 'Ivan@gmail.com', password: '315920', isAdmin: true},
+    {id: 2, name: 'John',email: 'John@gmail.com', password: 'asd421', isAdmin: false},
+    {id: 3, name: 'Kurban',email: 'Kurban@gmail.com', password: '123', isAdmin: false}
+]
 const SignUp = () => {
+
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -12,8 +18,6 @@ const SignUp = () => {
 
     const [error, setError] = useState(false)
     const [ok, setOk] = useState('')
-
-    const id = users.length++
 
     const onHandleClick = () => {
         if(name == ''|| email == ''|| password == ''|| andpassword == ''){
@@ -27,7 +31,7 @@ const SignUp = () => {
                 setOffPassword(false)
                 
                 users.push({
-                    id: id,
+                    id: users.length,
                     name: name,
                     email: email,
                     password: password,
